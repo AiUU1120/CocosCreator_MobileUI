@@ -10,7 +10,9 @@ export class MainPanel extends BasePanel
     public anim: Animation;
 
     @property(Button)
-    public btnHero: Button;
+    public btnHero: Button = null;
+    @property(Button)
+    public btnFriend: Button = null;
 
     protected onLoad(): void
     {
@@ -21,6 +23,7 @@ export class MainPanel extends BasePanel
     {
         this.showPanel();
         this.btnHero.node.on(Button.EventType.CLICK, () => { UIManager.getInstance().showPanel(E_PanelType.HeroPanel) }, this);
+        this.btnFriend.node.on(Button.EventType.CLICK, () => { UIManager.getInstance().showPanel(E_PanelType.FriendPanel) }, this);
     }
 
     update(deltaTime: number)
